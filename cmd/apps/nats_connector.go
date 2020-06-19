@@ -76,7 +76,7 @@ func MakeInstallNATSConnector() *cobra.Command {
 			return err
 		}
 
-		_, err = apps.MakeInstallNATSConnector(natsConnectorOptions)
+		_, err = apps.MakeInstallChart(natsConnectorOptions)
 		if err != nil {
 			return err
 		}
