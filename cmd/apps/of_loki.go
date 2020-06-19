@@ -90,8 +90,7 @@ func MakeInstallOpenFaaSLoki() *cobra.Command {
 			return err
 		}
 
-		// Post install config of openfaas
-		// kubectl -n openfaas set env deployment/gateway -c gateway -e logs_provider_url=http://ofloki-openfaas-loki.openfaas:9191/
+		// Post install config of openfaas-loki
 		k8s.Kubectl("-n", openfaasNamespace,
 			"set", "env", "deployment/gateway",
 			"-c", "gateway",
