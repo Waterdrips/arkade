@@ -111,6 +111,10 @@ faas-cli logs
 # If you installed loki with grafana, with 'arkade install loki --grafana'
 # You can use the grafana dashboard to see the OpenFaaS Logs, you can see 
 # how to get your grafana password with 'arkade info loki'
+
+# We have automatically configured OpenFaaS to use the Loki logs URL, you can set 'gateway.logsProviderURL'
+# When installing openfaas with Helm or use the '--log-provider-url' flag in arkade.
+# The url is in the format 'http://openfaas-loki.namespace:3100/' (where namespace is the installed namespace for loki-stack)
 `
 
 const lokiOFInstallMsg = `=======================================================================
