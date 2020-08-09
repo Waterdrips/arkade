@@ -26,6 +26,27 @@ func Test_DownloadDarwin(t *testing.T) {
 	}
 }
 
+func Test_DownloadLinux(t *testing.T) {
+	tools := MakeTools()
+	name := "faas-cli"
+	var tool *Tool
+	for _, target := range tools {
+		if name == target.Name {
+			tool = &target
+			break
+		}
+	}
+
+	got, err := tool.GetURL("linux", "", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	want := "https://github.com/openfaas/faas-cli/releases/download/" + faasCLIVersion + "/faas-cli"
+	if got != want {
+		t.Fatalf("want: %s, got: %s", want, got)
+	}
+}
+
 func Test_DownloadKubectlDarwin(t *testing.T) {
 	tools := MakeTools()
 	name := "kubectl"
